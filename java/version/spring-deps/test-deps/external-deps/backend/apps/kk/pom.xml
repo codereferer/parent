@@ -11,6 +11,8 @@
     <artifactId>kk</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>kk-java8</module>
         <module>kk-spring-boot</module>
+        <module>kkjava8</module>
     </modules>
 </project>
