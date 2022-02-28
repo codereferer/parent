@@ -1,0 +1,34 @@
+Spring Boot Latest Version : 2.6.0
+
+Spring Framework Limitations:
+1. Spring Framework uses XML based configuration
+2. Spring Boot uses Annotation based configuration
+
+Spring Boot Advantages:
+1. Spring Boot supports "convention over configuration".
+Spring Boot uses annotations over XML based configuration.
+2. Spring Boot acts as a "Standard for Microservices architecture".
+Spring Boot provides a unified ecosystem of libraries and standards for all developers utilizing Microservices methodology.
+3. Spring Boot provides an Integrated Embedded tomcat Server for Development.
+4. Spring Boot supports Rapid Application Development.
+5. Spring Boot provides cloud support for configuration, tools and clients.
+Spring Boot is compatible with Cloud Native, Cloud Foundry, Pivotal etc.
+6. Spring Boot has support for integrating third party libraries like NoSQL DB, distributed cache.
+
+Spring Boot = Spring Framework - XML Configuration + Integrated Servers
+
+Spring Boot Disadvantages:
+1. Migration from legacy spring project to Spring Boot is difficult.
+2. Deployment to WebSphere/WebLogic/other Servers
+You need to downgrade JPA Version, Remove conflicting jars in order to make it work on Application Server.
+3. Spring Boot has been developing keeping microservices architecture and Cloud Native in mind.
+
+
+Ways to create a spring boot project:
+1. Using "start.spring.io" and run using eclipse
+2. Using Eclipse and Maven
+3. Using Spring Boot CLI
+
+Spring Boot Data JPA (using Query Methods)
+Spring Data JPA Named Query (using JPQL and @NamedQueries)
+

@@ -1,0 +1,56 @@
+1. Why Java is not 100% Object Oriented Language?
+Ans: Because Java uses primitive data types and has Wrapper classes
+
+2. Why Pointer are not provided in Java?
+Ans: 1. They are unsafe
+2. It increase program complexity
+3. JVM handles memory allocation implicitly and inorder to avoid direct memory access we avoid use of pointers
+
+3. What is JIT compiler in Java?
+Ans:
+Java Source Code -> JDK uses Javac.exe -> ByteCode -> JRE has Interpreter and JIT Compiler -> Machine Code 
+
+4. Why String is immutable in Java?
+Ans:
+String Literals are stored in String Pool.
+Strings are immutable otherwise shared string reference ca be changed from anywhere.
+
+String is shared on different area like File System, Network Connection,
+Database Connection. Hence, immutable strings allows us to be secure and safe
+because no one can change string reference post creation.
+
+5. What is marker interface?
+Ans: Eg: Serializable, Cloneable, Remote interface.
+It provides tuntimetype information about object so compiler and JVM have additional information about object.
+
+6. Can you override private or static method in Java?
+Ans:
+1. You cannot override private or static method in Java.
+2. Scope of Private Method is inaccessible in Sub Class.
+3. Method Hiding : For static method if you create a similar method with same return type, same method argument in child class
+then it will hide the superclass method, this is called method hiding.
+
+7. Does "finally" always executes in java?
+Ans:
+1. Explicitly invoking "System.exit()"
+2. When system crash it wont execute finally
+
+8. Object Class Methods?
+Ans: equals, hashcode, wait, notify, notifyAll, clone, finalize, toString
+
+9. How to make an immutable class?
+Ans:  
+1. Declare class as 'final' so it cannot be extended
+2. Declare all fields as 'private' as direct access is not allowed
+3. Don't provide setter method for variables
+4. Make all mutable fields 'final' so that value cannot be changes post initialization
+5. Initialize all fields via constructor injection performing deep copy
+6. Perform cloning of object in getter method to return a copy rather than returning actual object reference.
+
+10. What is Singleton class? How to make a singleton class?
+Ans:
+At any instance there is one and only one instance per JVM
+
+11. What is JVM?
+Ans:
+.java -
