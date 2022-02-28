@@ -1,6 +1,5 @@
 package com.company.easy;
 
-import java.util.Set;
 import java.util.HashSet;
 import java.util.Arrays;
 
@@ -18,12 +17,12 @@ public class CheckIfArrayContainsDuplicate {
     public boolean containsDuplicateUsingHashSet(int[] nums) {
         boolean flag = false;
         HashSet<Integer> numbers = new HashSet<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (numbers.contains(nums[i])) {
+        for (int num : nums) {
+            if (numbers.contains(num)) {
                 flag = true;
                 break;
             }
-            numbers.add(nums[i]);
+            numbers.add(num);
         }
         return flag;
     }
