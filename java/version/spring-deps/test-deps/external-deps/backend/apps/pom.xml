@@ -14,11 +14,14 @@
 		<module>bharath</module>
 		<module>coding-simplified</module>
 		<module>dailycodebuffer</module>
+		<module>hackerrank</module>
 		<module>in28minutes</module>
 		<module>javaguides</module>
 		<module>javatechie</module>
 		<module>joejames</module>
 		<module>kk</module>
+		<module>leetcode</module>
+		<module>ranjithramachandran</module>
 		<module>techprimers</module>
     </modules>
 </project>
