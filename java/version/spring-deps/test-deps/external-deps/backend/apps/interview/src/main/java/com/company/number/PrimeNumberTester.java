@@ -14,6 +14,7 @@ public class PrimeNumberTester {
     }
 
     public boolean isPrime(final int number) {
-        return number > 1 && IntStream.range(2, number).noneMatch(divisor -> number % divisor == 0);
+        return number > 1 && IntStream.range(2, number)
+                                      .noneMatch(divisor -> number % divisor == 0);
     }
 }

@@ -1,6 +1,0 @@
-GET
-http://localhost:8080/findTicket
-
-GET
-http://localhost:8080/findTicketByCategory/general
-http://localhost:8080/findTicketByCategory/first class
