@@ -48,16 +48,94 @@ Log4j Vulnerability
 Dependency Injection
 Spring MVC
 Object Class Methods
-Immutable Class
+Immutable Class : StringHandling -> immutable -> MyImmutable
 Deep Clone vs Shallow Clone
+String Class
+String (immutable) vs StringBuffer (Synchronized) vs StringBuilder (Mutable and Non Synchronized)
+How HashMap works in Java
+Serialization and Deserialization
+How to break Singleton
+Checked vs Unchecked Exception
+Recursion
+Fail Fast vs Fail Safe
+Producer Consumer
+JMS vs Kafka vs Rabbitmq
+Anonymous inner class vs Lambda
+NoClassDefFound vs ClassNotFoundException
+Transient
 
-Java 8 Features:
+Java 8 Features :
 default method in interface
 static method in interface
 functional interface
 lambda expression
 method reference
+java.util.function (Predicate, Consumer, Supplier, Function)
 stream : intermediate + terminal operation
+
+Java 9 Features :
+Private method in interface
+static Private method in interface
+Try with Resources
+Immutable Collection : List.of(),Set.of(),Map.of() java.lang.UnsupportedOperationException
+@SafeVarargs can be used on private methods 
+Stream API improvements : takeWhile(), dropWhile(), ofNullable()
+Modules
+HTTP2
+Custom Linking Libraries
+JShell
+
+Java 10 Features :
+variables can be defined using : var (supports Type Inference)
+- var cannot be null
+- var cannot be assigned for Lambda
+- var cannot be used at class level
+Collectors API Update :
+toUnmodifiableList
+toUnmodifiableSet
+toUnmodifiableMap
+
+Java 11 Features :
+String API Updates :
+- strip() stripLeading() stripTrailing() repeat("-")
+File API Updates :
+- Files.writeString()
+isEmpty in Optional
+
+Java 12 Features :
+String API Updates:
+-indent() transform()
+NumberFormat.getCompactNumberInstance()
+Unicode (chess characters)
+Teeing Method
+Switch Expression (preview)
+GC improvements
+
+Java 13 Features :
+Text Blocks
+Switch Expressions (no break, yield to return value)
+Helpful Nullpointers
+Records (Simplified Java Beans better than class)
+
+Java 14 Features :
+
+Java 15 Features :
+Sealed Classes (preview)
+Sealed Interface
+
+Java 16 Features :
+instanceof Pattern Matching (str instanceof String)
+Stream
+- toList() toSet()
+Records
+- can be used in inner class
+
+Java 17 Features :
+Sealed Class
+RandomGeneratorFactory
+Pattern Matching Switch
+Deserializing Filters
+
 ###############################################################
 JDK = JRE + JVM
 Compiler .java -> .class or bytecode -> (JIT compiler) machine code
@@ -199,7 +277,180 @@ Downcasting -> Parent to Child -> byte b = (byte) i
 
 Auto Promotion int -> float, int -> long
 **Most specific Child class version is invoked in inheritance**
+**We can have main method in abstract class - true**
 ###############################################################
+Encapsulation
+Binding attribute and behaviour in a class and exposing getter and setter
+Security
+Easy Enhancement;
+
+private data members and public methods
+###############################################################
+Exception Handling
+###############################################################
+Multi Threading
+###############################################################
+Garbage Collection
+Unreachable objects are cleaned up on Heap Memory
+A a = new A();
+a = null; 
+**finalize() method should be overridden and implicitly invoked by gc only when it runs out of memory not always**
+**use try with resources**
+**System.gc() -> request for garbage collection thread but not always**
+###############################################################
+String
+java.lang.String
+String is immutable : String content cannot be changed because :
+1. performance reusability (string pooling)
+2. thread safety (two threads can use same string value they cannot change each other values)
+Ways to create String :
+- String Literal
+- String Constructor
+- initialize char[]
+- initialize byte[]
+**Strings and Wrapper Objects are treated differently by JVM**
+###############################################################
+Arrays are static (cannot change their size)
+Collections are dynamic (can change their size)
+**Use Enhanced For Loop in case of Array to avoid index**
+###############################################################
+Object Class Methods:
+equals hashcode toString finalize wait wait wait notify notifyAll
+hashcode : HashMap and HashSet uses hashcode to store object in a bucket
+HashMap retrieves object values based on their hashcode.
+We should override hashcode method else jvm by default uses objects address as the hashcode.
+equal objects must have equal hashcode
+**String StringBuffer Wrapper classes override equals method they do not use == for equality check**
+###############################################################
+Collections with Generics
+List : ArrayList LinkedList
+Set : HashSet TreeSet NavigableSet
+Comparable
+Comparator
+Map : HashMap LinkedHashMap TreeMap IdentityHashMap WeakHashMap
+Queue : PriorityQueue
+Arrays
+Type Erasure
+###############################################################
+Concurrent Collections (introduced in 1.5)
+- CopyOnWriteArrayList
+- CopyOnWriteArraySet
+- ConcurrentHashMap
+- BlockingQueue (put and take)
+ConcurrentHashMap vs SynchronizedHashMap
+They do not throw ConcurrentModificationException
+(while iterating you cannot add/delete items from collection : list
+modifications are done on clone object)
+###############################################################
+Enums (1.5)
+Group of named constants introduced in Java 1.5
+Enum is internally represented as a class
+All enum extends from java.util.Enum
+enum values are public static and final
+values and ordinal() -> shows position
+enum can have getter method, constructor
+Enum cannot extend another class
+###############################################################
+
+###############################################################
+JVM Architecture
+Virtual Machine - VMWare, JVM, CLR(Common Language Runtime used in .Net)
+JVM Components
+- Class Loader : Application CL (classpath) -> Extension CL (ext/*.jar) -> Bootstrap CL (jre/lib/rt.jar)
+- Memory Areas : 
+1. Method Area
+2. Heap Area
+3. Stack Area 
+4. PC Register 
+5. Native Method Stacks
+- Execution Engine :
+- Java Native Interface JNI : 
+- Native Method Libraries
+###############################################################
+i18N or Internationalization
+Supporting multiple languages and formats that are local to area.
+###############################################################
+Java Annotations (Java 1.5)
+@Entity @Table @Id @ToString @Data @AllArgsConstructor
+@NoArgsConstructor @Override @Deprecated @SuppressWarnings
+JUnit : @Before @After @BeforeEach @AfterEach @Test
+###############################################################
+Reflection API
+- Using Reflection we can Inspect and Modify behaviour of a class dynamically at RunTime
+- Access private methods
+- Spring, Hibernate, JUnit uses reflection
+###############################################################
+Regular Expression
+- Validate Email, Mobile Number using Combinator Design Pattern
+###############################################################
+Interview Questions
+JDK(javac java)-> JRE(rt.jar)
+bytecode -> JVM (JIT Compiler) -> Machine Code -> OS
+
+Constructor
+method to initialize properties of object
+same name as class name
+invoked when object is created
+super() to invoke Parent class constructor
+
+Method Overloading / Compile Time Polymorphism
+Method Overriding / Run Time Polymorphism
+A a = new B()
+a = new C()
+a.run();
+
+final vs finally vs finalize
+final : class cannot be inherited, variable cannot be changed, method cannot be overridden
+finally : invoked always in case of try-catch
+finalize : invoked by garbage collector
+
+Generics
+Type of data going into Collection
+Type Erasure : Erasing type checking on Runtime 
+
+== vs equals
+== shallow comparison, 
+obj1.equals(obj2) : String, Wrapper deep comparison
+
+Java Class Loader
+main() System Application, Extension, Bootstrap Class Loader
+
+serialVersionUID
+java.io.InvalidClassException
+Every class implementing Serializable must have serialVersionUID
+JVM implicitly assigns a default serialVersionUID
+private static final long serialVersionUID = 1L (cannot be inherited)
+###############################################################
+Socket Programming (java.net package)
+Client - Server
+###############################################################
+JUnit 4 and JUnit 5
+Report Generation Charts
+###############################################################
+Maven (settings.xml toolchains.xml)
+Convention over Configuration
+Just have to maintain a folder structure
+Plugin based architecture
+surefire, failsafe, pom.xml
+groupId artifactId version dependencies packaging(jar/war)
+maven phases
+m2e (maven to eclipse plugin)
+###############################################################
+Git
+###############################################################
+Jar
+(create verbose filename)
+java -cvf <jar-name>.jar .
+java -tvf <jar-name>.jar
+java -xvf <jar-name>.jar
+
+Executable Jar
+###############################################################
+Debugging Fundamentals
+- Breakpoints
+- Step into, Step Over, Resume, Return, Call Stack, Variables, Watchpoint
+###############################################################
+
 
 
 
